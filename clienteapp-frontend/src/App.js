@@ -37,11 +37,14 @@ export default App;
 
 import React from 'react';
 import ServiceForm from './components/ServiceForm';
+import 'bootstrap/dist/css/bootstrap.min.css';
+import ClientesList from './components/ClienteList';
 
 const App = () => {
     return (
         <div className="App">
             <ServiceForm />
+            <ClientesList />
         </div>
     );
 };
