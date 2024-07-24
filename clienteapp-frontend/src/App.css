@@ -36,3 +36,150 @@
     transform: rotate(360deg);
   }
 }
+
+.card:hover {
+  transform: translateY(-10px);
+  transition: transform 0.3s;
+}
+
+.card {
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+
+.card:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card-background-lightblue {
+  background-color: #3699f0;
+}
+.custom-margin {
+  margin-left: 10px; /* Ajusta el valor según sea necesario */
+}
+.box-wrapper {
+  background-image: url(https://izdd11.a2cdn1.secureserver.net/wp-content/uploads/2020/12/Grupo-408.jpg?time=1720457233);
+  background-position: center top;
+  background-size: auto; /* Ajusta el tamaño para cubrir completamente */
+  min-height: 100vh; /* Ocupa toda la altura del viewport */
+  display: flex;
+  flex-direction: column;
+  padding: 20px; /* Ajusta el padding según necesidad */
+}
+
+.table-custom {
+  width: 100%;
+  background-color: #f1e6e6;
+  margin-top: 20px; /* Espacio adicional arriba */
+  border: 1px solid rgba(34, 36, 38, 0.15);
+  border-radius: 0.28571429rem;
+  text-align: left;
+  color: rgba(49, 13, 13, 0.87);
+  border-collapse: separate;
+  border-spacing: 0;
+  table-layout: fixed; /* Fuerza el ancho fijo de las columnas */
+}
+.ui.table.table-custom th {
+  background-color: #e6e9ec;
+  color: #6b82b5;
+  font-family: "Courier New", Courier, monospace;
+  font-size: large;
+}
+.ui.table.table-custom td {
+  background-color: #fefefe;
+  color: #030303;
+  filter: brightness(1);
+  font-family: Open Sans, sans-serif;
+  font-weight: 300;
+  padding: 10px 10px 0px 8px;
+  font-size: 17px;
+}
+.colorFecha {
+  color: #00bcd4;
+}
+.backgroundCelda {
+  filter: brightness(1.75);
+}
+
+.custom-navbar-bg {
+  background-color: #282c34 !important;
+  border-radius: 8px;
+}
+.text-white-custom {
+  color: white !important;
+  filter: brightness(1);
+}
+.derechos {
+  text-align: center;
+}
+.left {
+  text-align: left;
+}
+
+.brillo-texto {
+  filter: brightness(1.75);
+}
+.table-custom {
+  width: 95%; /* Ancho máximo de la tabla */
+  max-width: 95%; /* Ajusta el ancho máximo */
+  margin-bottom: 2em; /* Espacio inferior */
+  table-layout: auto; /* Fijar el ancho de la tabla */
+  margin: 0 auto; /* Centra la tabla horizontalmente */
+}
+.table-custom.tr {
+  height: 100px;
+  max-height: min-content;
+  max-width: 200px;
+  width: 100px;
+}
+.table-custom th,
+.table-custom td {
+  max-width: 200px; /* Limita el ancho máximo de las celdas */
+  overflow: hidden; /* Oculta el contenido que sobrepasa el ancho */
+  text-overflow: ellipsis; /* Muestra puntos suspensivos (...) cuando el contenido se recorta */
+  white-space: nowrap; /* Evita el salto de línea en el contenido */
+  vertical-align: top; /* Alinea el contenido hacia arriba dentro de la celda */
+}
+
+.h-full {
+  height: 100%;
+}
+.container-fluid {
+  margin-top: 20px; /* Espacio adicional arriba */
+}
+.table-custom .observaciones-column {
+  overflow-y: auto; /* Permite desplazamiento vertical si es necesario */
+  max-height: 150px; /* Altura máxima para mostrar el contenido */
+  white-space: pre-wrap; /* Permite mostrar saltos de línea y espacios */
+  word-wrap: break-word; /* Permite romper palabras largas si es necesario */
+}
+.pdf-download-button {
+  background: none;
+  border: none;
+  padding: 0;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+.pdf-icon {
+  transition: transform 0.2s ease-in-out;
+}
+
+.pdf-download-button:hover .pdf-icon {
+  transform: scale(1.1);
+}
+
+.pdf-download-button:active .pdf-icon {
+  transform: scale(0.9);
+}
+
+/* para que la tabla sea responsive a moviles*/
+.table-wrapper {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.table-wrapper table {
+  width: 100%;
+  min-width: 600px; /* Ajusta este valor según tus necesidades */
+}

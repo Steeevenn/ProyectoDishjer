@@ -1,5 +1,7 @@
 package com.app.clienteapp.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -14,14 +16,17 @@ public class Contacto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
+
     private String nombreContacto;
 
     @OneToOne(mappedBy = "contacto", cascade = CascadeType.ALL)
+    @JsonManagedReference
     private Telefono telefono;
 
     @ManyToOne
     @JoinColumn(name = "cliente_id")
+    // Objeto relacionado  La anotación indica a Jackson que omita la referencia inversa en el JSON.
+    @JsonBackReference
     private Cliente cliente;
 
     public Long getId() {
@@ -56,5 +61,4 @@ public class Contacto {
         this.cliente = cliente;
     }
 
-    
 }

@@ -1,5 +1,6 @@
 package com.app.clienteapp.controller;
 
+import com.app.clienteapp.dto.TelefonoDTO;
 import com.app.clienteapp.model.Servicio;
 import com.app.clienteapp.model.Telefono;
 import com.app.clienteapp.service.ServicioService;
@@ -24,13 +25,13 @@ public class TelefonoController {
     private TelefonoService telefonoService;
 
     @GetMapping
-    public List<Telefono> mostrarDirecciones() {
+    public List<TelefonoDTO> mostrarDirecciones() {
         return telefonoService.findAll();
     }
 
     @PostMapping
-    public Telefono CrearDirecciones(@RequestBody Telefono telefono) {
-        return telefonoService.save(telefono);
+    public TelefonoDTO CrearDirecciones(@RequestBody TelefonoDTO telefonoDTO) {
+        return telefonoService.save(telefonoDTO);
     }
 
     @DeleteMapping("/{id}")

@@ -1,5 +1,7 @@
 package com.app.clienteapp.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -19,15 +21,19 @@ public class Equipo {
     
     @ManyToOne
     @JoinColumn(name="cliente_id")
+    @JsonBackReference
     private Cliente cliente;
 
     @OneToMany(mappedBy = "equipo", cascade = CascadeType.ALL)
+        @JsonManagedReference
     private List<Servicio> servicios;
     
     private int contadorColor;
     private int contadorBlancoNegro;
     
     @OneToMany(mappedBy = "equipo", cascade = CascadeType.ALL)
+     @JsonManagedReference
+
     private List<Repuesto> repuestos; 
 
     public Long getId() {

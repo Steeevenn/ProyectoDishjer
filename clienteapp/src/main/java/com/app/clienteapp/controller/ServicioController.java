@@ -1,8 +1,6 @@
 package com.app.clienteapp.controller;
 
-import com.app.clienteapp.model.Repuesto;
-import com.app.clienteapp.model.Servicio;
-import com.app.clienteapp.service.RepuestoService;
+import com.app.clienteapp.dto.ServicioDTO;
 import com.app.clienteapp.service.ServicioService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,13 +22,21 @@ public class ServicioController {
     private ServicioService servicioService;
 
     @GetMapping
-    public List<Servicio> mostrarDirecciones() {
+    public List<ServicioDTO> mostrarDirecciones() {
         return servicioService.findAll();
     }
-
+  @GetMapping("/{id}")
+    public ServicioDTO buscarServicioId(@PathVariable Long id){
+        
+        return servicioService.findById(id)        
+                .orElseThrow(() -> new RuntimeException("Servicio no encontrado con ID: " + id));
+        
+       
+    }
+    
     @PostMapping
-    public Servicio CrearDirecciones(@RequestBody Servicio servicio) {
-        return servicioService.save(servicio);
+    public ServicioDTO CrearDirecciones(@RequestBody ServicioDTO servicioDTO) {
+        return servicioService.save(servicioDTO);
     }
 
     @DeleteMapping("/{id}")

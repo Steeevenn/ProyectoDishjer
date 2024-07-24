@@ -1,5 +1,6 @@
 package com.app.clienteapp.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -20,6 +21,7 @@ public class Servicio {
     private LocalTime horaFin;
     private String tipoServicio; // mantenimiento preventivo, correctivo, reparación
     private String tipoContrato; // Garantía, contrato o facturar
+
     private String observaciones;
     private String firmaTecnico;
     private String firmaCliente;
@@ -27,6 +29,7 @@ public class Servicio {
 
     @ManyToOne
     @JoinColumn(name = "equipo_id")
+    @JsonBackReference
     private Equipo equipo;
 
     public Long getId() {

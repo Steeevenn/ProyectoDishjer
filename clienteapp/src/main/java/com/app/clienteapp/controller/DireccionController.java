@@ -1,8 +1,6 @@
 package com.app.clienteapp.controller;
 
-import com.app.clienteapp.model.Contacto;
-import com.app.clienteapp.model.Direccion;
-import com.app.clienteapp.service.ContactoService;
+import com.app.clienteapp.dto.DireccionDTO;
 import com.app.clienteapp.service.DireccionService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,13 +22,13 @@ public class DireccionController {
     private DireccionService direccionService;
 
     @GetMapping
-    public List<Direccion> mostrarDirecciones() {
+    public List<DireccionDTO> mostrarDirecciones() {
         return direccionService.findAll();
     }
 
     @PostMapping
-    public Direccion CrearDirecciones(@RequestBody Direccion direccion) {
-        return direccionService.save(direccion);
+    public DireccionDTO CrearDirecciones(@RequestBody DireccionDTO direccionDTO) {
+        return direccionService.save(direccionDTO);
     }
 
     @DeleteMapping("/{id}")
