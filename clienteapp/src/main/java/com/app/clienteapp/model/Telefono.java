@@ -1,5 +1,6 @@
 package com.app.clienteapp.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -17,6 +18,7 @@ public class Telefono {
    
    @OneToOne
    @JoinColumn(name = "contacto_id")
+   @JsonBackReference
    private Contacto contacto;
 
     public Long getId() {

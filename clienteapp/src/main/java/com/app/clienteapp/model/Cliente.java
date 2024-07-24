@@ -1,11 +1,9 @@
 package com.app.clienteapp.model;
 
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import jakarta.persistence.*;
+
+
 import java.util.List;
 
 // Representa una entidad en la base de datos
@@ -18,16 +16,40 @@ public class Cliente {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nombreCliente;
-    
-    // Uno a muchos 
+
+    // Anotacion para trabajar con objetos pesados @Lob
+
+
+    @Lob
+    @Column(name = "pdf"/*nullable = false*/)
+    private byte[]  pdf;
+
+
+    public byte[] getPdf() {
+        return pdf;
+    }
+
+    public void setPdf(byte[] pdf) {
+        this.pdf = pdf;
+    }
+
+
+    // Uno a muchos
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
+    @JsonManagedReference
+    // Anotacion objeto que gestiona La anotación indica a Jackson que incluya la referencia al objeto relacionado en el JSON.
     private List<Direccion> direcciones;
 
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<Equipo> equipos;
 
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
+    @JsonManagedReference
     private List<Contacto> contactos;
+
+
+
 
     public Long getId() {
         return id;

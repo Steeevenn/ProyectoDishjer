@@ -1,6 +1,6 @@
 package com.app.clienteapp.controller;
 
-import com.app.clienteapp.model.Contacto;
+import com.app.clienteapp.dto.*;
 import com.app.clienteapp.service.ContactoService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,13 +15,14 @@ public class ContactoController {
     private ContactoService contactoService;
     
     @GetMapping()
-    public List<Contacto> mostrarContacto(){
-    return contactoService.findAll();
+    public List<ContactoDTO> mostrarContacto(){
+        return contactoService.findAll();
+   
     }
     
     @PostMapping()
-    public Contacto crearContacto(@RequestBody Contacto contacto){
-    return contactoService.save(contacto);
+    public ContactoDTO crearContacto(@RequestBody ContactoDTO contactoDTO){
+    return contactoService.save(contactoDTO);
     }
     
     @DeleteMapping("{id}")

@@ -1,8 +1,6 @@
 package com.app.clienteapp.controller;
 
-import com.app.clienteapp.model.Direccion;
-import com.app.clienteapp.model.Equipo;
-import com.app.clienteapp.service.DireccionService;
+import com.app.clienteapp.dto.EquipoDTO;
 import com.app.clienteapp.service.EquipoService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,14 +21,16 @@ public class EquipoController {
     @Autowired
     private EquipoService equipoService;
 
+    
     @GetMapping
-    public List<Equipo> mostrarDirecciones() {
+    public List<EquipoDTO> mostrarDirecciones() {
         return equipoService.findAll();
+                
     }
 
     @PostMapping
-    public Equipo CrearDirecciones(@RequestBody Equipo equipo) {
-        return equipoService.save(equipo);
+    public EquipoDTO CrearDirecciones(@RequestBody EquipoDTO equipoDTO) {
+        return equipoService.save(equipoDTO);
     }
 
     @DeleteMapping("/{id}")

@@ -1,8 +1,6 @@
 package com.app.clienteapp.controller;
 
-import com.app.clienteapp.model.Equipo;
-import com.app.clienteapp.model.Repuesto;
-import com.app.clienteapp.service.EquipoService;
+import com.app.clienteapp.dto.RepuestoDTO;
 import com.app.clienteapp.service.RepuestoService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,13 +23,13 @@ public class RepuestoController {
     private RepuestoService repuestoService;
 
     @GetMapping
-    public List<Repuesto> mostrarDirecciones() {
+    public List<RepuestoDTO> mostrarDirecciones() {
         return repuestoService.findAll();
     }
 
     @PostMapping
-    public Repuesto CrearDirecciones(@RequestBody Repuesto Repuesto) {
-        return repuestoService.save(Repuesto);
+    public RepuestoDTO CrearDirecciones(@RequestBody RepuestoDTO RepuestoDTO) {
+        return repuestoService.save(RepuestoDTO);
     }
 
     @DeleteMapping("/{id}")

@@ -1,5 +1,6 @@
 package com.app.clienteapp.model;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -20,6 +21,7 @@ public class Repuesto {
 
     @ManyToOne()
     @JoinColumn(name="equipo_id")
+    @JsonBackReference
     private Equipo equipo;
 
     public Long getId() {
